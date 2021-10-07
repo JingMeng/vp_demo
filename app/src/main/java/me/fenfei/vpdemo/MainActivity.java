@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout = findViewById(R.id.main_tab);
         mFragments = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            mFragments.add(VpFragment.getInstance(String.valueOf(i)));
+            mFragments.add(VpFragment2.getInstance(String.valueOf(i)));
         }
         Vp2Adapter adapter = new Vp2Adapter(this);
         mViewPager2.setAdapter(adapter);
