@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginBottom="12dp"
+    android:gravity="center_vertical"
+    android:minHeight="137dp"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+
+    <!--    这个需要用glide做圆角处理-->
+    <androidx.cardview.widget.CardView
+        android:layout_width="107dp"
+        android:layout_height="107dp"
+        android:layout_marginRight="14dp"
+        app:cardCornerRadius="5dp">
+
+        <ImageView
+            android:id="@+id/play_game_item_ico"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher" />
+    </androidx.cardview.widget.CardView>
+
+
+    <!--    不知道怎么写了这么一句话，放开会有惊喜-->
+    <!--    <Space-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_weight="1" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/play_game_item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="T^千熙"
+                android:textColor="#ff031028"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/play_game_gender_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_launcher_background"
+                android:gravity="center"
+                android:minWidth="40dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp">
+
+                <ImageView
+                    android:id="@+id/play_game_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/play_game_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="17"
+                    android:textColor="#ffff3a69"
+                    android:textSize="9sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/play_game_item_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            tools:layout_height="21dp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/play_game_item_motto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="生活明朗我最可爱人间值得未来可期"
+            android:textColor="#ffa3adb8"
+            android:textSize="12sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/play_game_item_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 元/小时  接单296次"
+            android:textColor="#031028"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

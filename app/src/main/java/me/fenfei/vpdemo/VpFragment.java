@@ -56,7 +56,7 @@ public class VpFragment extends Fragment {
         }
         mFragments = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
-            mFragments.add(EmptyFragment.getInstance(String.valueOf(i)));
+            mFragments.add(RVFragment.getInstance(String.valueOf(i)));
         }
         mViewPager2.setUserInputEnabled(false);
         Vp2Adapter adapter = new Vp2Adapter(this);
