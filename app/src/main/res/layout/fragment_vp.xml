@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/vp_holder_tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="空占位界面"
+        android:textColor="@android:color/black"
+        android:textSize="20dp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/vp_tab"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorPrimary"
+        app:tabMode="scrollable" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_vp2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp" />
+
+
+</FrameLayout>
