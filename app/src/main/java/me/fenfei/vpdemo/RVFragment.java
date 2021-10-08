@@ -1,17 +1,16 @@
 package me.fenfei.vpdemo;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class RVFragment extends Fragment {
 
@@ -39,8 +38,8 @@ public class RVFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView= view.findViewById(R.id.rv_data);
-        mTextView= view.findViewById(R.id.rv_holder_tv);
+        mRecyclerView = view.findViewById(R.id.rv_data);
+        mTextView = view.findViewById(R.id.rv_holder_tv);
         Bundle bundle = getArguments();
         if (null != bundle) {
             mTextView.setText(bundle.getString(SHOW_FLAG));
@@ -50,5 +49,6 @@ public class RVFragment extends Fragment {
         PlayGameAdapter mGameAdapter = new PlayGameAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         mRecyclerView.setAdapter(mGameAdapter);
+        mRecyclerView.setHasFixedSize(true);
     }
 }
