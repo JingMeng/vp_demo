@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mViewPager2 = findViewById(R.id.main_vp2);
+//        mViewPager2.setCurrentItem();
         mTabLayout = findViewById(R.id.main_tab);
         mFragments = new ArrayList<>();
 
@@ -55,5 +56,12 @@ public class MainActivity extends AppCompatActivity {
                 (tab, position) -> {
                     tab.setText(position + "-tab");
                 }).attach();
+
+        mViewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+        });
     }
 }
