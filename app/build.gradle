@@ -34,8 +34,9 @@ dependencies {
 //        exclude group: 'androidx.recyclerview'
 //    }
 
+//    https://material.io/develop/android/docs/getting-started
 //    这个里面包含了所有，只要这个不注销掉，所有的代码都会不报错  --- 下面的这个排除掉rv就会报错了，说缺失rv了
-    implementation('com.google.android.material:material:1.2.1') {
+    implementation('com.google.android.material:material:1.4.0') {
         exclude group: 'androidx.recyclerview'
     }
 //    https://developer.android.com/jetpack/androidx/releases/recyclerview?hl=zh-cn
