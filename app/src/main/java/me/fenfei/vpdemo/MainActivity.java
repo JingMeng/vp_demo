@@ -1,6 +1,7 @@
 package me.fenfei.vpdemo;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -49,17 +50,27 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(this) {
-            @Override
-            protected int getVerticalSnapPreference() {
-                return LinearSmoothScroller.SNAP_TO_START;
-            }
+        LinearSmoothScroller smoothScroller =
+                new LinearSmoothScroller(this) {
+                    // 返回：滑过1px时经历的时间(ms)。
+                    @Override
+                    protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+                        return 50f / displayMetrics.densityDpi;
+                    }
+                };
 
-            @Override
-            protected int getHorizontalSnapPreference() {
-                return LinearSmoothScroller.SNAP_TO_START;
-            }
-        };
+
+//        RecyclerView.SmoothScroller smoothScroller = new LinearSmoothScroller(this) {
+//            @Override
+//            protected int getVerticalSnapPreference() {
+//                return LinearSmoothScroller.SNAP_TO_START;
+//            }
+//
+//            @Override
+//            protected int getHorizontalSnapPreference() {
+//                return LinearSmoothScroller.SNAP_TO_START;
+//            }
+//        };
 //        smoothScroller.setTargetPosition(position);
 
 
@@ -78,26 +89,30 @@ public class MainActivity extends AppCompatActivity {
             mTabLayout.addTab(tab);
         }
 
-        if (false){
+        if (true) {
             mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
                 @Override
                 public void onTabSelected(TabLayout.Tab tab) {
                     int position = tab.getPosition();
-//                smoothScroller.setTargetPosition(position);
-//                ((RecyclerView) mViewPager2.getChildAt(0)).getLayoutManager().startSmoothScroll(smoothScroller);
 
-//                这个是没有动画效果的
-                    //https://blog.csdn.net/aiyoufang/article/details/82992115
-                    RecyclerView child = (RecyclerView) mViewPager2.getChildAt(0);
                     if (false) {
-                        child.scrollToPosition(position);
+                        //                这个是没有动画效果的
+                        //https://blog.csdn.net/aiyoufang/article/details/82992115
+                        RecyclerView child = (RecyclerView) mViewPager2.getChildAt(0);
+                        if (false) {
+                            child.scrollToPosition(position);
+                        } else {
+                            LinearLayoutManager mLayoutManager = (LinearLayoutManager) child.getLayoutManager();
+                            mLayoutManager.scrollToPositionWithOffset(position, 0);
+                        }
+                        if (false) {
+                            mViewPager2.setCurrentItem(position);
+                        }
                     } else {
-                        LinearLayoutManager mLayoutManager = (LinearLayoutManager) child.getLayoutManager();
-                        mLayoutManager.scrollToPositionWithOffset(position, 0);
+                        smoothScroller.setTargetPosition(position);
+                        ((RecyclerView) mViewPager2.getChildAt(0)).getLayoutManager().startSmoothScroll(smoothScroller);
                     }
-                    if (false) {
-                        mViewPager2.setCurrentItem(position);
-                    }
+
 
                 }
 
@@ -111,14 +126,14 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-        }else {
-        new TabLayoutMediator(mTabLayout,
-                mViewPager2,
-                false,
-                true,
-                (tab, position) -> {
-                    tab.setText(position + "-tab");
-                }).attach();
+        } else {
+            new TabLayoutMediator(mTabLayout,
+                    mViewPager2,
+                    false,
+                    true,
+                    (tab, position) -> {
+                        tab.setText(position + "-tab");
+                    }).attach();
         }
         mViewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
