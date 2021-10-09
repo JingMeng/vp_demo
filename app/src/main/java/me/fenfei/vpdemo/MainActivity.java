@@ -18,6 +18,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 /**
  * 典型的rv嵌套rv，滑动出现问题
+ *
+ * https://blog.csdn.net/a86261566/article/details/50906456
  */
 public class MainActivity extends AppCompatActivity {
 
