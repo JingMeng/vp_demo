@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+/**
+ * 典型的rv嵌套rv，滑动出现问题
+ */
 public class MainActivity extends AppCompatActivity {
 
 
@@ -36,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
             mFragments.add(EmptyFragment.getInstance("1"));
         } else {
             //下面的这个不管使用是vp还是rv都会存在问题
-            if (false) {
-                mFragments.add(VpFragment.getInstance("1"));
+            if (true) {
+                mFragments.add(VpEmptyFragment.getInstance("1"));
             } else {
                 mFragments.add(RVFragment.getInstance("1"));
             }
